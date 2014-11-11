@@ -1,6 +1,25 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+Complexity :
+
+Parsing the characters = O(n) 
+Say we found ‘m’ number of words. m will always be < n. In worst case, when all the words are single character, m = n/2. In best case, when the entire string is only one word, m = 1.
+To find top most element from Map of size m = O(m)
+To find second top most element from Map of size m = O(m-1)
+To find top most ‘k’ elements from Map of size m 
+= O(m * k - (1 + 2 + … +k)) 
+approx = O(m * k)
+= O((n/j) * k) (where m = n / j)
+
+To parse characters + Find topmost k elements =
+O(n + (n/j) * k)
+
+If the value of k is small compared to the huge input string n, the complexity will be ~= O(n + (n/j)
+since n/j <= n, complexity ~= O(n).
+*/
+
 public class StringProblems {
 
 	public static void main(String[] args) {
@@ -104,21 +123,4 @@ public class StringProblems {
 		map.put(word, count);
 	}
 }
-/*
-Complexity :
 
-Parsing the characters = O(n) 
-Say we found ‘m’ number of words. m will always be < n. In worst case, when all the words are single character, m = n/2. In best case, when the entire string is only one word, m = 1.
-To find top most element from Map of size m = O(m)
-To find second top most element from Map of size m = O(m-1)
-To find top most ‘k’ elements from Map of size m 
-= O(m * k - (1 + 2 + … +k)) 
-approx = O(m * k)
-= O((n/j) * k) (where m = n / j)
-
-To parse characters + Find topmost k elements =
-O(n + (n/j) * k)
-
-If the value of k is small compared to the huge input string n, the complexity will be ~= O(n + (n/j)
-since n/j <= n, complexity ~= O(n).
-*/
